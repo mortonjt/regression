@@ -62,7 +62,7 @@ def multinomial(table: biom.Table,
     beta_ = clr(clr_inv(np.hstack((np.zeros((model.p, 1)), model.B))))
 
     differentials = pd.DataFrame(
-        beta_.T, columns=md_ids, index=obs_ids,
+        beta_.T, columns=md_ids, index=pd.Index(obs_ids, name='id'),
     )
     convergence_stats = pd.DataFrame(
         {
